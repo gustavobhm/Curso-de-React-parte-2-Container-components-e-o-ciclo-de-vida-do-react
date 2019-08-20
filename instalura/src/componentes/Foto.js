@@ -32,7 +32,7 @@ class FotoInfo extends Component {
             })
           }
           curtiram
-              </div>
+        </div>
 
         <p className="foto-info-legenda">
           <a href="/" className="foto-info-autor">autor </a>
