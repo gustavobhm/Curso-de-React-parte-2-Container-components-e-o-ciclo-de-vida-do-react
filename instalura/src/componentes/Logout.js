@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router';
 
 export default class Logout extends Component {
 
-    UNSAFE_componentWillMount() {
+    componentWillMount() {
         localStorage.removeItem('auth-token');
         browserHistory.push('/');
     }

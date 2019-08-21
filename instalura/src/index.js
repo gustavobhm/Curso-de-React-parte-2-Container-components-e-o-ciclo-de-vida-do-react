@@ -7,12 +7,17 @@ import App from './App';
 import Login from './componentes/Login';
 import Logout from './componentes/Logout';
 import { Router, Route, browserHistory } from 'react-router';
+import { matchPattern } from 'react-router/lib/PatternUtils';
 
 function verificaAutenticacao(nextState, replace) {
-    if (localStorage.getItem('auth-token') === null) {
+    const resultado = matchPattern('/timeline(/:login)', nextState.location.pathname);
+    const enderecoPrivadoTimeline = resultado.paramValues[0] === undefined;
+
+    if (enderecoPrivadoTimeline && localStorage.getItem('auth-token') === null) {
         replace('/?msg=você precisa estar logado para acessar o endereço');
     }
 }
+
 
 ReactDOM.render(
     (
